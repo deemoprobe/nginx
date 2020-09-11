@@ -95,12 +95,16 @@ firewall-cmd --reload
     <h1> This is index_svr1_loc1.html </h1>
     ```
 
+    ![20200911113636](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911113636.png)
+
 2. 访问`www.server1.com:8001/server/location2/`
 
     ```shell
     $ curl www.server1.com:8001/server/location2/
     <h1> This is index_svr1_loc2.html </h1>
     ```
+
+    ![20200911113727](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911113727.png)
 
 3. 访问`www.server1.com:8001/server/location1`
 
@@ -114,6 +118,7 @@ firewall-cmd --reload
     </body>
     </html>
     # 这里发现想要找到location1位置的文件,文根必须加上/
+    # 注：部分浏览器可以访问是因为浏览器策略会自动寻找文件夹下的文件,但是为了保证100%没问题,文根还是要加的
     ```
 
 4. 访问`www.server1.com:8001/server/location3/`
@@ -130,6 +135,8 @@ firewall-cmd --reload
     </html>
     ```
 
+    ![20200911114039](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911114039.png)
+
 5. 访问`192.168.245.131:8001/server/location1/`
 
     ```shell
@@ -137,17 +144,23 @@ firewall-cmd --reload
     <h1> This is server2 location1 </h1>
     ```
 
+    ![20200911114119](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911114119.png)
+
 6. 访问`192.168.245.131:8001/server/location2/`
-
-    ```shell
-    $ curl 192.168.245.131:8001/svr/loc2/
-    <h1> This is server2 location2!</h1>
-    ```
-
-7. 访问`192.168.245.131:8001/svr/loc2/`
 
     ```shell
     // 使用的是自定义的404页面
     $ curl 192.168.245.131:8001/server/location2/
     <h1> 404. File Not Found. </h1>
     ```
+
+    ![20200911114144](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911114144.png)
+
+7. 访问`192.168.245.131:8001/svr/loc2/`
+
+    ```shell
+    $ curl 192.168.245.131:8001/svr/loc2/
+    <h1> This is server2 location2!</h1>
+    ```
+
+    ![20200911114304](https://deemoprobe.oss-cn-shanghai.aliyuncs.com/images/20200911114304.png)
