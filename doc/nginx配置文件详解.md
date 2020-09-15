@@ -1,9 +1,7 @@
 # Nginx配置文件详解
 
-![dump](../images/dump.jpg)
-
 ```shell
-#定义Nginx运行的用户和用户组
+#定义运行Nginx的用户和用户组,一般若不定义则默认是nobody(即不限定用户和组)
 user www www;
 
 #nginx进程数，指定启动多少进程来处理请求，一般情况下设置成CPU的核数，如果开启了ssl和gzip更应该设置成与逻辑CPU数量一样甚至为2倍，可以减少I/O操作。使用grep ^processor /proc/cpuinfo | wc -l查看CPU核数。
