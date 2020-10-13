@@ -53,11 +53,11 @@ http
  #压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
  gzip_vary on;
  #limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
- upstream blog.ha97.com {
+ upstream mysvr {
  #upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
- server 192.168.80.121:80 weight=3;
- server 192.168.80.122:80 weight=2;
- server 192.168.80.123:80 weight=3;
+    server 192.168.80.121:80 weight=3;
+    server 192.168.80.122:80 weight=2;
+    server 192.168.80.123:80 weight=3;
  }
  虚拟主机的配置
  server
